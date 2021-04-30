@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.ccdown'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.63'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.63'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.2'
+
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.76'
+
+    // https://mvnrepository.com/artifact/org.iq80.leveldb/leveldb
+    implementation group: 'org.iq80.leveldb', name: 'leveldb', version: '0.12'
+    // https://mvnrepository.com/artifact/org.iq80.leveldb/leveldb-api
+    implementation group: 'org.iq80.leveldb', name: 'leveldb-api', version: '0.12'
+
+    // https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni
+    implementation group: 'org.rocksdb', name: 'rocksdbjni', version: '6.19.3'
+
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
