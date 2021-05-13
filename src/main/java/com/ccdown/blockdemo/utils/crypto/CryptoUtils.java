@@ -29,8 +29,8 @@ public abstract class CryptoUtils {
         return new byte[0];
     }
 
-    public static byte[] hash(byte[] msg) {
-        return new byte[0];
+    public static String hash(byte[] msg) {
+        return "";
     }
 
 }

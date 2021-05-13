@@ -10,6 +10,7 @@ import org.bouncycastle.crypto.params.ParametersWithID;
 import org.bouncycastle.crypto.signers.SM2Signer;
 import org.bouncycastle.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.io.IOException;
 import java.security.PrivateKey;
@@ -52,11 +53,12 @@ public class Sm2CryptoUtils extends CryptoUtils {
         return new byte[0];
     }
 
-    public static byte[] hash(byte[] msg) {
+    public static String hash(byte[] msg) {
         SM3Digest sm3 = new SM3Digest();
         sm3.update(msg, 0, msg.length);
         byte[] out = new byte[32];
         sm3.doFinal(out, 0);
-        return out;
+
+        return Hex.toHexString(out);
     }
 }
